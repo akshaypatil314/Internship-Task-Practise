@@ -1,2 +1,2 @@
-# Internship-Task-Practise
-This repository is used for storing all practise task related to internship
+# Internship-Tasks
+This repository is used for storing all tasks/projects related to internship
