@@ -1,0 +1,139 @@
+.container-2 {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    font-size: 1.5rem;
+    animation: fadeInDown 1s ease-out;
+    color: white;
+    width: 100%;
+    height: 20%;
+    padding-top: 2%;
+}
+
+
+.movie-div {
+    width: 70%;
+    margin: 0 auto;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 4%;
+}
+
+
+.movie-div div {
+    display: flex;
+    align-items: center;
+    height: 26%;
+    width: 40%;
+    justify-content: center;
+    background-color: black;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.movie-div div:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(3, 209, 255);
+    transform: scale(1.1);
+}
+
+.movie-link:hover {
+    color: #009ffd;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (min-width:481px) and (max-width: 768px) {
+    header {
+        padding-top: 0%;
+        font-size: 1rem;
+        height: 15%;
+    }
+
+    .movie-div {
+        width: 80%;
+        gap: 1%;
+        height: 85%;
+    }
+
+    .movie-div div {
+        height: 25%;
+    }
+
+    a {
+        font-size: 1rem;
+    }
+}
+
+
+@media only screen and (min-width:769px) and (max-width: 1024px) {
+    header {
+        padding-top: 0%;
+        font-size: 1rem;
+        height: 15%;
+    }
+
+    .movie-div {
+        width: 80%;
+        gap: 1%;
+        height: 85%;
+    }
+
+    .movie-div div {
+        height: 25%;
+    }
+
+    a {
+        font-size: 1rem;
+    }
+}

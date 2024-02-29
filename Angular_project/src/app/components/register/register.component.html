@@ -1,0 +1,80 @@
+<div class="background">
+    <div class="container">
+        <div class="flex-item-1">
+            <h1>Sign up and start exploring! 🚀</h1>
+        </div>
+        <div class="flex-item-2">
+            <div>
+                <h1>Create Account</h1>
+                <p>Register Here! To get All informataion about movies.</p>
+            </div>
+
+            <form ngNativeValidate (ngSubmit)="SubmitForm(registerForm)" #registerForm="ngForm">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Name..." [(ngModel)]="formData.name" required
+                        #name="ngModel">
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="failure-message">
+                        <div *ngIf="name.errors?.['required']">Name is required.</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email.." [(ngModel)]="formData.email"
+                        required #email="ngModel" email>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="failure-message">
+                        <div *ngIf="email.errors?.['required']">Email is required.</div>
+                        <div *ngIf="email.errors?.['email']">Invalid email format.</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password.."
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" [(ngModel)]="formData.password" required
+                        #password="ngModel">
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="failure-message">
+                        <div *ngIf="password.errors?.['required']">Password is required.</div>
+                        <div *ngIf="password.errors?.['pattern']">Password must contain at least 8 characters, one
+                            lowercase
+                            letter, one
+                            uppercase letter, and one number.</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="mobile">Mobile</label>
+                    <input type="tel" name="mobile" id="mobile" placeholder="Mobile.." pattern="[0-9]{10}"
+                        [(ngModel)]="formData.mobile" required #mobile="ngModel">
+                    <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="failure-message">
+                        <div *ngIf="mobile.errors?.['required']">Mobile is required.</div>
+                        <div *ngIf="mobile.errors?.['pattern']">Mobile number must contain 10 digits.</div>
+                    </div>
+                </div>
+                <button>Register</button>
+            </form>
+
+            <div class="login-here">
+                <p>Already registered? <a routerLink="/login">Login here.</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isRegistered; else registerFail">
+    <div class="popup" id="popup-success" [ngStyle]="dynamicStyles">
+        <div class="popup-content success">
+            <span class="close" (click)="closePopup()">ok</span>
+            <h2>Registration Successful! 🎉</h2>
+            <p>You can now log in to explore our movie information.</p>
+        </div>
+    </div>
+</div>
+
+<ng-template #registerFail>
+    <div class="popup" id="popup-failure" [style.display]="dynamicStyles.display">
+        <div class="popup-content failure">
+            <span class="close" (click)="closePopup()">ok</span>
+            <h2>Registration Failed! 😞</h2>
+            <p>Please check your information and try again.</p>
+        </div>
+    </div>
+</ng-template>

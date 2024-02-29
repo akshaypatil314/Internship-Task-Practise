@@ -1,0 +1,10 @@
+<div class="container-2">
+    <header>
+        <h1>Movie List</h1>
+    </header>
+    <div class="movie-div">
+        <div *ngFor="let item of movies$">
+            <a routerLink={{item.id}} class="movie-link">{{item.title}}</a>
+        </div>
+    </div>
+</div>
